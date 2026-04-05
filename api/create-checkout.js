@@ -62,6 +62,16 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed.' })
   }
 
+  const squareEnvironment = process.env.SQUARE_ENVIRONMENT || 'sandbox'
+  const allowLivePayments = process.env.ALLOW_LIVE_PAYMENTS === 'true'
+
+  if (squareEnvironment === 'production' && !allowLivePayments) {
+    return res.status(403).json({
+      error:
+        'Demo mode is enabled. Live payments are blocked. Set ALLOW_LIVE_PAYMENTS=true to enable production checkout.',
+    })
+  }
+
   const accessToken = process.env.SQUARE_ACCESS_TOKEN
   const locationId = process.env.SQUARE_LOCATION_ID
 

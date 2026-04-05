@@ -11,6 +11,7 @@ Copy `.env.example` to `.env` and fill values:
 - `SQUARE_ACCESS_TOKEN`
 - `SQUARE_LOCATION_ID`
 - `SQUARE_ENVIRONMENT` (`sandbox` or `production`)
+- `ALLOW_LIVE_PAYMENTS` (`false` by default; set `true` only when intentionally enabling real charges)
 - `DATABASE_URL` (Neon connection string)
 - `CHECKOUT_SUCCESS_URL` (example: `http://localhost:5173/checkout/success`)
 - `CHECKOUT_CANCEL_URL` (example: `http://localhost:5173/checkout/cancel`)
@@ -70,7 +71,13 @@ Current webhook route is scaffolded and includes TODO markers for strict signatu
 1. Replace `SQUARE_ACCESS_TOKEN` with production token.
 2. Replace `SQUARE_LOCATION_ID` with production location.
 3. Set `SQUARE_ENVIRONMENT=production`.
-4. Ensure production `CHECKOUT_SUCCESS_URL` and `CHECKOUT_CANCEL_URL` match your domain.
+4. Set `ALLOW_LIVE_PAYMENTS=true` to intentionally allow live charges.
+5. Ensure production `CHECKOUT_SUCCESS_URL` and `CHECKOUT_CANCEL_URL` match your domain.
+
+### Demo safety lock
+
+Checkout API blocks real production payments unless `ALLOW_LIVE_PAYMENTS=true`.
+This protects demo/recruiter traffic from accidental purchases.
 
 ## Checkout flow (end-to-end)
 

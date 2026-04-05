@@ -623,7 +623,7 @@ function App() {
       <div className="banner">
         <p className="label">New</p>
         <p className="muted">
-          Lunch special: slice + salad + sparkling for $12, ready in 10.
+          Demo mode: Square sandbox checkout only. No real card charges.
         </p>
         <a href="#deals" className="inline-link">
           View combos
