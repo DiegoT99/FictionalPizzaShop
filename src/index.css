@@ -1,0 +1,60 @@
+:root {
+  /* Warm, food-friendly palette */
+  --primary: #d7462f; /* roasted tomato */
+  --primary-strong: #b93b28;
+  --accent: #f4c95d; /* toasted corn */
+  --bg: #fff9f4;
+  --panel: #ffffff;
+  --text: #2f241a;
+  --text-h: #1a120c;
+  --muted: #74685f;
+  --muted-strong: #8a7f77;
+  --border: #e9e1d9;
+  --border-soft: #f6eee6;
+  --border-strong: #d8cfc6;
+  --shadow-soft: 0 12px 30px rgba(26, 18, 12, 0.08);
+  --shadow-subtle: 0 3px 10px rgba(26, 18, 12, 0.05);
+
+  --sans: 'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+
+  font: 17px/160% var(--sans);
+  color: var(--text);
+  background: var(--bg);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+h3 {
+  font-size: 18px;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font: inherit;
+}

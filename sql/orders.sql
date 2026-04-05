@@ -1,0 +1,20 @@
+CREATE TABLE IF NOT EXISTS orders (
+  id TEXT PRIMARY KEY,
+  order_number TEXT UNIQUE NOT NULL,
+  status TEXT NOT NULL,
+  items_json JSONB NOT NULL,
+  subtotal_cents INTEGER NOT NULL,
+  tax_cents INTEGER NOT NULL,
+  total_cents INTEGER NOT NULL,
+  currency TEXT NOT NULL DEFAULT 'USD',
+  fulfillment_type TEXT,
+  customer_name TEXT,
+  customer_email TEXT,
+  customer_phone TEXT,
+  delivery_address TEXT,
+  customer_note TEXT,
+  square_payment_link_id TEXT,
+  square_order_id TEXT,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+);
