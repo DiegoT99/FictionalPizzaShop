@@ -63,7 +63,15 @@ export default async function handler(req, res) {
   }
 
   const squareEnvironment = process.env.SQUARE_ENVIRONMENT || 'sandbox'
+  const demoCheckoutOnly = process.env.DEMO_CHECKOUT_ONLY !== 'false'
   const allowLivePayments = process.env.ALLOW_LIVE_PAYMENTS === 'true'
+
+  if (demoCheckoutOnly && squareEnvironment !== 'sandbox') {
+    return res.status(403).json({
+      error:
+        'Demo checkout lock is enabled. Only Square sandbox is allowed for this project.',
+    })
+  }
 
   if (squareEnvironment === 'production' && !allowLivePayments) {
     return res.status(403).json({

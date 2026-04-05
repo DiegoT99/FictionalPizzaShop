@@ -11,6 +11,7 @@ Copy `.env.example` to `.env` and fill values:
 - `SQUARE_ACCESS_TOKEN`
 - `SQUARE_LOCATION_ID`
 - `SQUARE_ENVIRONMENT` (`sandbox` or `production`)
+- `DEMO_CHECKOUT_ONLY` (`true` by default; blocks non-sandbox checkout)
 - `ALLOW_LIVE_PAYMENTS` (`false` by default; set `true` only when intentionally enabling real charges)
 - `DATABASE_URL` (Neon connection string)
 - `CHECKOUT_SUCCESS_URL` (example: `http://localhost:5173/checkout/success`)
@@ -78,6 +79,9 @@ Current webhook route is scaffolded and includes TODO markers for strict signatu
 
 Checkout API blocks real production payments unless `ALLOW_LIVE_PAYMENTS=true`.
 This protects demo/recruiter traffic from accidental purchases.
+
+For strict demo projects, keep `DEMO_CHECKOUT_ONLY=true` and `SQUARE_ENVIRONMENT=sandbox`.
+With that setting, any non-sandbox checkout request is rejected server-side.
 
 ## Checkout flow (end-to-end)
 
