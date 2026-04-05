@@ -162,13 +162,16 @@ export default async function handler(req, res) {
     const squareData = await response.json()
 
     if (!response.ok || !squareData?.payment_link?.url) {
+      const squareErrorDetail = squareData?.errors?.[0]?.detail || null
+      const squareErrorCode = squareData?.errors?.[0]?.code || null
       console.error('Square checkout creation failed', {
         status: response.status,
         squareData,
         orderNumber,
       })
       return res.status(502).json({
-        error: 'Unable to create hosted checkout session. Please try again.',
+        error: squareErrorDetail || 'Unable to create hosted checkout session. Please try again.',
+        squareCode: squareErrorCode,
       })
     }
 
