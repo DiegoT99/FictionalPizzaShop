@@ -57,11 +57,6 @@ function toSquareLineItem(item) {
   }
 }
 
-function isValidEmail(value) {
-  if (!value || typeof value !== 'string') return false
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)
-}
-
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method not allowed.' })
@@ -131,11 +126,6 @@ export default async function handler(req, res) {
 
     const successBaseUrl = process.env.CHECKOUT_SUCCESS_URL || `${payload.siteUrl || ''}/checkout/success`
 
-    const buyerEmail = payload?.customer?.email
-    const prePopulatedData = isValidEmail(buyerEmail)
-      ? { buyer_email: buyerEmail }
-      : undefined
-
     const response = await fetch(`${getSquareBaseUrl()}/v2/online-checkout/payment-links`, {
       method: 'POST',
       headers: {
@@ -163,7 +153,6 @@ export default async function handler(req, res) {
         checkout_options: {
           redirect_url: `${successBaseUrl}?order=${orderNumber}`,
         },
-        pre_populated_data: prePopulatedData,
       }),
     })
 
