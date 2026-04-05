@@ -317,6 +317,20 @@
   gap: 16px;
 }
 
+.visit-info {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.visit-info .ghost {
+  align-self: flex-start;
+}
+
 .card {
   border: 1px solid var(--border);
   border-radius: 16px;

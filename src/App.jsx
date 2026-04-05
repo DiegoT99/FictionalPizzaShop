@@ -821,18 +821,20 @@ function App() {
             <div className="ph ph-wide">
               <img src={interiorImg} alt="Dining room" />
             </div>
-            <div className="row">
-              <div>
-                <p className="label">Dine-in</p>
-                <p className="muted">11a–10p · bar till 11p</p>
+            <div className="visit-info">
+              <div className="row">
+                <div>
+                  <p className="label">Dine-in</p>
+                  <p className="muted">11a–10p · bar till 11p</p>
+                </div>
+                <span className="pill">Main St.</span>
               </div>
-              <span className="pill">Main St.</span>
+              <p className="muted">
+                125 Main Street, Suite B · Wood oven, long tables, power outlets,
+                Wi‑Fi.
+              </p>
+              <button className="ghost">Book a table</button>
             </div>
-            <p className="muted">
-              125 Main Street, Suite B · Wood oven, long tables, power outlets,
-              Wi‑Fi.
-            </p>
-            <button className="ghost">Book a table</button>
           </article>
           <article className="card">
             <div className="map ph ph-wide">
