@@ -152,7 +152,7 @@
   display: grid;
   grid-template-columns: 1.2fr 0.9fr;
   gap: 32px;
-  align-items: stretch;
+  align-items: start;
 }
 
 .hero-copy h1 {
@@ -208,12 +208,11 @@
 }
 
 .hero-frame {
-  border: 1px dashed var(--border-strong);
+  border: 1px solid var(--border);
   border-radius: 18px;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  padding: 0;
+  overflow: hidden;
+  align-self: start;
   background: radial-gradient(circle at 20% 20%, rgba(244, 201, 93, 0.16), transparent 45%),
     radial-gradient(circle at 80% 10%, rgba(215, 70, 47, 0.12), transparent 40%),
     var(--panel);
@@ -226,9 +225,8 @@
 }
 
 .frame-image {
-  height: 220px;
-  border-radius: 14px;
-  border: 1px dashed var(--border-strong);
+  height: clamp(280px, 34vw, 420px);
+  border-radius: inherit;
   overflow: hidden;
   background: linear-gradient(135deg, rgba(215, 70, 47, 0.12), rgba(244, 201, 93, 0.16));
 }
@@ -238,19 +236,6 @@
   height: 100%;
   object-fit: cover;
   display: block;
-}
-
-.frame-body {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 10px;
-}
-
-.frame-block {
-  height: 90px;
-  border-radius: 12px;
-  border: 1px solid var(--border);
-  background: var(--panel);
 }
 
 .section {
@@ -749,6 +734,10 @@
 
   .hero {
     grid-template-columns: 1fr;
+  }
+
+  .frame-image {
+    height: clamp(240px, 56vw, 360px);
   }
 
   .hero-copy h1 {

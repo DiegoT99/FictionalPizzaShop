@@ -705,11 +705,6 @@ function App() {
           <div className="frame-image">
             <img src={heroImg} alt="Wood-fired pizza with basil" />
           </div>
-          <div className="frame-body">
-            <div className="frame-block" />
-            <div className="frame-block" />
-            <div className="frame-block" />
-          </div>
         </div>
       </section>
 
